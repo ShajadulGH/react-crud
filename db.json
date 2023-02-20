@@ -1,22 +1,11 @@
 {
   "employee": [
     {
-      "name": "dada dadad",
+      "firstName": "dadad",
+      "lastName": "dadadad",
       "email": "dada@gmail.com",
-      "phone": "9879889",
+      "phone": "89789788",
       "id": 1
-    },
-    {
-      "name": "da rrrrrrrr",
-      "email": "dad@gmail.com",
-      "phone": "74784747",
-      "id": 2
-    },
-    {
-      "name": "dddddddd rrrrrr",
-      "email": "adad@gmail.com",
-      "phone": "7889498",
-      "id": 3
     }
   ]
 }

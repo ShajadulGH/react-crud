@@ -17,6 +17,10 @@ const EmployeeList = () => {
         console.log(err.message);
       });
   }, []);
+
+  const LoadDetail = (id) => {
+    navigate("/employee/details/" + id);
+  };
   return (
     <div className="container">
       <div className="card">
@@ -42,11 +46,18 @@ const EmployeeList = () => {
               {empdata &&
                 empdata.map((item) => (
                   <tr key={item.id}>
-                    <td>{item.name}</td>
+                    <td>{`${item.firstName} ${item.lastName}`}</td>
                     <td>{item.email}</td>
                     <td>{item.phone}</td>
                     <td>
-                      <a className="btn btn-success">Details</a>
+                      <a
+                        onClick={() => {
+                          LoadDetails(item.id);
+                        }}
+                        className="btn btn-success"
+                      >
+                        Details
+                      </a>
                       <a className="btn btn-primary">Block</a>
                       <a className="btn btn-danger">Delete</a>
                     </td>

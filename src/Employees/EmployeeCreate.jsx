@@ -13,9 +13,9 @@ const EmployeeCreate = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    const name = `${firstName} ${lastName}`;
-    console.log(name);
-    const empdata = { name, email, phone };
+    // const name = `${firstName} ${lastName}`;
+    // console.log(name);
+    const empdata = { firstName, lastName, email, phone };
 
     axios
       .post("http://localhost:8000/employee", empdata, {
