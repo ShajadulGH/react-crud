@@ -1,6 +1,6 @@
 import "../src/App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import EmployeeList from "./Employees/EmployeeList";
+import EmployeeList from "./EmployeeList";
 import EmployeeCreate from "./Employees/EmployeeCreate";
 import EmployeeDetails from "./Employees/EmployeeDetails";
 import EmployeeBlock from "./Employees/EmployeeBlock";
