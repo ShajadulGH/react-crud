@@ -15,7 +15,8 @@ const EmployeeCreate = () => {
     e.preventDefault();
     // const name = `${firstName} ${lastName}`;
     // console.log(name);
-    const empdata = { firstName, lastName, email, phone };
+    const blocked = false;
+    const empdata = { firstName, lastName, email, phone, blocked };
 
     axios
       .post("http://localhost:8000/employee", empdata, {

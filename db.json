@@ -2,10 +2,18 @@
   "employee": [
     {
       "id": 1,
-      "firstName": "Shajadul Karim",
-      "lastName": "Bhuiyan",
+      "firstName": "shajadul",
+      "lastName": "Rahe",
       "email": "abc@gmail.com",
-      "phone": "0186117444"
+      "phone": "123"
+    },
+    {
+      "id": 2,
+      "firstName": "Mamun",
+      "lastName": "Khan",
+      "email": "abc@gmail.com",
+      "phone": "123456789",
+      "blocked": false
     }
   ]
 }

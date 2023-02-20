@@ -6,18 +6,6 @@ import { Link, useNavigate } from "react-router-dom";
 const EmployeeList = () => {
   const [empdata, empdatachange] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/employee")
-      .then((res) => {
-        empdatachange(res.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
-
   const LoadDetails = (id) => {
     navigate("/employee/details/" + id);
   };
@@ -34,6 +22,34 @@ const EmployeeList = () => {
         });
     }
   };
+  const BlockUpdate = (id, firstName, lastName, email, phone, blockedInfo) => {
+    const blocked = !blockedInfo;
+    const empdata = { id, firstName, lastName, email, phone, blocked };
+    axios
+      .put(`http://localhost:8000/employee/${id}`, empdata, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        // alert("Successfully blocked employee");
+        // navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/employee")
+      .then((res) => {
+        empdatachange(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, [BlockUpdate]);
+
   return (
     <div className="container">
       <div className="card">
@@ -71,7 +87,21 @@ const EmployeeList = () => {
                       >
                         Details
                       </a>
-                      <a className="btn btn-primary">Block</a>
+                      <a
+                        onClick={() => {
+                          BlockUpdate(
+                            item.id,
+                            item.firstName,
+                            item.lastName,
+                            item.email,
+                            item.phone,
+                            item.blocked
+                          );
+                        }}
+                        className="btn btn-primary"
+                      >
+                        {item.blocked ? "Unblock" : "Block"}
+                      </a>
                       <a
                         onClick={() => {
                           RemoveItem(item.id);
