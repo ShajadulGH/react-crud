@@ -18,7 +18,7 @@ const EmployeeList = () => {
       });
   }, []);
 
-  const LoadDetail = (id) => {
+  const LoadDetails = (id) => {
     navigate("/employee/details/" + id);
   };
   return (
