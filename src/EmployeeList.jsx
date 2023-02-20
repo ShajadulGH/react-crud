@@ -21,6 +21,19 @@ const EmployeeList = () => {
   const LoadDetails = (id) => {
     navigate("/employee/details/" + id);
   };
+  const RemoveItem = (id) => {
+    if (window.confirm("Do you want to remove?")) {
+      axios
+        .delete(`http://localhost:8000/employee/${id}`)
+        .then((res) => {
+          alert("Removed successfully.");
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  };
   return (
     <div className="container">
       <div className="card">
@@ -59,7 +72,14 @@ const EmployeeList = () => {
                         Details
                       </a>
                       <a className="btn btn-primary">Block</a>
-                      <a className="btn btn-danger">Delete</a>
+                      <a
+                        onClick={() => {
+                          RemoveItem(item.id);
+                        }}
+                        className="btn btn-danger"
+                      >
+                        Delete
+                      </a>
                     </td>
                   </tr>
                 ))}
