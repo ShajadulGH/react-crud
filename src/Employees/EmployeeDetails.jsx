@@ -57,7 +57,7 @@ const EmployeeDetails = () => {
               </div>
               <div className="card-body">
                 <div className="row">
-                  <div className="col-lg-12">
+                  {/* <div className="col-lg-12">
                     <div className="form-group">
                       <label>ID</label>
                       <input
@@ -66,7 +66,7 @@ const EmployeeDetails = () => {
                         className="form-control"
                       ></input>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="col-lg-12">
                     <div className="form-group">
@@ -104,7 +104,7 @@ const EmployeeDetails = () => {
                       <label>Email</label>
                       <input
                         value={email}
-                        onChange={(e) => emailchange(e.target.value)}
+                        disabled
                         className="form-control"
                       ></input>
                     </div>
