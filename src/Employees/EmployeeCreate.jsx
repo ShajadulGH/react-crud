@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const EmployeeCreate = () => {
   //   const [id, idchange] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -17,11 +17,12 @@ const EmployeeCreate = () => {
     console.log(name);
     const empdata = { name, email, phone };
 
-    fetch("http://localhost:8000/employee", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(empdata),
-    })
+    axios
+      .post("http://localhost:8000/employee", empdata, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((res) => {
         alert("Saved successfully.");
         navigate("/");
