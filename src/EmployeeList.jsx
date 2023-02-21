@@ -61,7 +61,6 @@ const EmployeeList = () => {
         console.log(err.message);
       });
   }, []);
-
   return (
     <div className="container">
       <div className="card">
@@ -74,59 +73,63 @@ const EmployeeList = () => {
               Add Employee (+)
             </Link>
           </div>
-          <table className="table table-bordered">
-            <thead className="bg-dark text-white">
-              <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Phone</td>
-                <td>Action</td>
-              </tr>
-            </thead>
-            <tbody>
-              {empdata &&
-                empdata.map((item) => (
-                  <tr key={item.id}>
-                    <td>{`${item.firstName} ${item.lastName}`}</td>
-                    <td>{item.email}</td>
-                    <td>{item.phone}</td>
-                    <td>
-                      <a
-                        onClick={() => {
-                          LoadDetails(item.id);
-                        }}
-                        className="btn btn-success"
-                      >
-                        Details
-                      </a>
-                      <a
-                        onClick={() => {
-                          BlockUpdate(
-                            item.id,
-                            item.firstName,
-                            item.lastName,
-                            item.email,
-                            item.phone,
-                            item.blocked
-                          );
-                        }}
-                        className="btn btn-primary"
-                      >
-                        {item.blocked ? "Unblock" : "Block"}
-                      </a>
-                      <a
-                        onClick={() => {
-                          RemoveItem(item.id);
-                        }}
-                        className="btn btn-danger"
-                      >
-                        Delete
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
+          {empdata?.length > 0 ? (
+            <table className="table table-bordered">
+              <thead className="bg-dark text-white">
+                <tr>
+                  <td>Name</td>
+                  <td>Email</td>
+                  <td>Phone</td>
+                  <td>Action</td>
+                </tr>
+              </thead>
+              <tbody>
+                {empdata &&
+                  empdata.map((item) => (
+                    <tr key={item.id}>
+                      <td>{`${item.firstName} ${item.lastName}`}</td>
+                      <td>{item.email}</td>
+                      <td>{item.phone}</td>
+                      <td>
+                        <a
+                          onClick={() => {
+                            LoadDetails(item.id);
+                          }}
+                          className="btn btn-success"
+                        >
+                          Details
+                        </a>
+                        <a
+                          onClick={() => {
+                            BlockUpdate(
+                              item.id,
+                              item.firstName,
+                              item.lastName,
+                              item.email,
+                              item.phone,
+                              item.blocked
+                            );
+                          }}
+                          className="btn btn-primary"
+                        >
+                          {item.blocked ? "Unblock" : "Block"}
+                        </a>
+                        <a
+                          onClick={() => {
+                            RemoveItem(item.id);
+                          }}
+                          className="btn btn-danger"
+                        >
+                          Delete
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          ) : (
+            "Table is empty!"
+          )}
         </div>
       </div>
     </div>
