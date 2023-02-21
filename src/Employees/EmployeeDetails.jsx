@@ -61,6 +61,7 @@ const EmployeeDetails = () => {
                     <div className="form-group">
                       <label>First Name</label>
                       <input
+                        type="text"
                         required
                         value={firstName}
                         onMouseDown={(e) => valchange(true)}
@@ -76,6 +77,7 @@ const EmployeeDetails = () => {
                     <div className="form-group">
                       <label>Last Name</label>
                       <input
+                        type="text"
                         required
                         value={lastName}
                         onMouseDown={(e) => valchange(true)}
@@ -92,6 +94,7 @@ const EmployeeDetails = () => {
                     <div className="form-group">
                       <label>Email</label>
                       <input
+                        type="email"
                         value={email}
                         disabled
                         className="form-control"
@@ -103,6 +106,7 @@ const EmployeeDetails = () => {
                     <div className="form-group">
                       <label>Phone</label>
                       <input
+                        type="number"
                         value={phone}
                         onChange={(e) => phonechange(e.target.value)}
                         className="form-control"

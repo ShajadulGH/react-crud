@@ -1,20 +1,3 @@
 {
-  "employee": [
-    {
-      "firstName": "da",
-      "lastName": "dad",
-      "email": "da",
-      "phone": "dad",
-      "blocked": false,
-      "id": 1
-    },
-    {
-      "firstName": "dad",
-      "lastName": "dada",
-      "email": "dada@gmail.com",
-      "phone": "5888",
-      "blocked": false,
-      "id": 2
-    }
-  ]
+  "employee": []
 }
