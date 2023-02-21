@@ -3,17 +3,9 @@
     {
       "id": 1,
       "firstName": "da",
-      "lastName": "dada",
-      "email": "ddad",
-      "phone": "58958",
-      "blocked": false
-    },
-    {
-      "id": 2,
-      "firstName": "da",
-      "lastName": "dada",
-      "email": "ddad",
-      "phone": "58958",
+      "lastName": "dad",
+      "email": "dad",
+      "phone": "01861171441",
       "blocked": false
     }
   ]

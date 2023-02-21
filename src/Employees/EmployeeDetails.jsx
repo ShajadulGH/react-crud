@@ -57,17 +57,6 @@ const EmployeeDetails = () => {
               </div>
               <div className="card-body">
                 <div className="row">
-                  {/* <div className="col-lg-12">
-                    <div className="form-group">
-                      <label>ID</label>
-                      <input
-                        value={id}
-                        disabled="disabled"
-                        className="form-control"
-                      ></input>
-                    </div>
-                  </div> */}
-
                   <div className="col-lg-12">
                     <div className="form-group">
                       <label>First Name</label>

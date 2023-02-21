@@ -3,11 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import EmployeeList from "./EmployeeList";
 import EmployeeCreate from "./Employees/EmployeeCreate";
 import EmployeeDetails from "./Employees/EmployeeDetails";
-import EmployeeBlock from "./Employees/EmployeeBlock";
 function App() {
   return (
     <div className="App">
-      <h1>Asif Inc</h1>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<EmployeeList />}></Route>

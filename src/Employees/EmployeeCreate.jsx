@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 const EmployeeCreate = () => {
-  //   const [id, idchange] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, emailchange] = useState("");
@@ -13,8 +12,6 @@ const EmployeeCreate = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    // const name = `${firstName} ${lastName}`;
-    // console.log(name);
     const blocked = false;
     const empdata = { firstName, lastName, email, phone, blocked };
 
@@ -44,17 +41,6 @@ const EmployeeCreate = () => {
               </div>
               <div className="card-body">
                 <div className="row">
-                  {/* <div className="col-lg-12">
-                    <div className="form-group">
-                      <label>ID</label>
-                      <input
-                        value={id}
-                        disabled="disabled"
-                        className="form-control"
-                      ></input>
-                    </div>
-                  </div> */}
-
                   <div className="col-lg-12">
                     <div className="form-group">
                       <label>First Name</label>
@@ -107,18 +93,6 @@ const EmployeeCreate = () => {
                       ></input>
                     </div>
                   </div>
-
-                  {/* <div className="col-lg-12">
-                    <div className="form-check">
-                      <input
-                        checked={active}
-                        onChange={(e) => activechange(e.target.checked)}
-                        type="checkbox"
-                        className="form-check-input"
-                      ></input>
-                      <label className="form-check-label">Is Active</label>
-                    </div>
-                  </div> */}
                   <div className="col-lg-12">
                     <div className="form-group">
                       <button className="btn btn-success" type="submit">

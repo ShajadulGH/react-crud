@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,7 +10,6 @@ const EmployeeList = () => {
     navigate("/employee/details/" + id);
   };
   const BlockUpdate = (id, firstName, lastName, email, phone, blockedInfo) => {
-    console.log("1");
     const blocked = !blockedInfo;
     const updateEmpData = { id, firstName, lastName, email, phone, blocked };
     axios
@@ -29,7 +28,6 @@ const EmployeeList = () => {
     empdatachange(
       empdata.map((item) => {
         if (item.id === id) {
-          console.log("working");
           return { ...item, blocked: !item.blocked };
         }
         return item;
@@ -37,18 +35,16 @@ const EmployeeList = () => {
     );
   };
   const RemoveItem = (id) => {
-    console.log("RemoveItem Runs");
     if (window.confirm("Do you want to remove?")) {
       axios
         .delete(`http://localhost:8000/employee/${id}`)
         .then((res) => {
-          alert("Removed successfully.");
+          // alert("Removed successfully.");
         })
         .catch((err) => {
           console.log(err.message);
         });
       var newEmpData = empdata.filter((item) => {
-        // console.log(item);
         return item.id !== id;
       });
       empdatachange(newEmpData);
@@ -56,7 +52,6 @@ const EmployeeList = () => {
   };
 
   useEffect(() => {
-    console.log("UseEffect Runs");
     axios
       .get("http://localhost:8000/employee")
       .then((res) => {
