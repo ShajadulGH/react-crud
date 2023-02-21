@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -22,23 +22,26 @@ const EmployeeList = () => {
         });
     }
   };
-  const BlockUpdate = (id, firstName, lastName, email, phone, blockedInfo) => {
-    const blocked = !blockedInfo;
-    const empdata = { id, firstName, lastName, email, phone, blocked };
-    axios
-      .put(`http://localhost:8000/employee/${id}`, empdata, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        // alert("Successfully blocked employee");
-        // navigate("/");
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
+  const BlockUpdate = useCallback(
+    (id, firstName, lastName, email, phone, blockedInfo) => {
+      const blocked = !blockedInfo;
+      const empdata = { id, firstName, lastName, email, phone, blocked };
+      axios
+        .put(`http://localhost:8000/employee/${id}`, empdata, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          // alert("Successfully blocked employee");
+          // navigate("/");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    },
+    []
+  );
   useEffect(() => {
     axios
       .get("http://localhost:8000/employee")
