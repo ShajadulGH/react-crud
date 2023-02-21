@@ -9,40 +9,54 @@ const EmployeeList = () => {
   const LoadDetails = (id) => {
     navigate("/employee/details/" + id);
   };
+  const BlockUpdate = (id, firstName, lastName, email, phone, blockedInfo) => {
+    console.log("1");
+    const blocked = !blockedInfo;
+    const updateEmpData = { id, firstName, lastName, email, phone, blocked };
+    axios
+      .put(`http://localhost:8000/employee/${id}`, updateEmpData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        // alert("Successfully blocked employee");
+        // navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+    empdatachange(
+      empdata.map((item) => {
+        if (item.id === id) {
+          console.log("working");
+          return { ...item, blocked: !item.blocked };
+        }
+        return item;
+      })
+    );
+  };
   const RemoveItem = (id) => {
+    console.log("RemoveItem Runs");
     if (window.confirm("Do you want to remove?")) {
       axios
         .delete(`http://localhost:8000/employee/${id}`)
         .then((res) => {
           alert("Removed successfully.");
-          window.location.reload();
         })
         .catch((err) => {
           console.log(err.message);
         });
+      var newEmpData = empdata.filter((item) => {
+        // console.log(item);
+        return item.id !== id;
+      });
+      empdatachange(newEmpData);
     }
   };
-  const BlockUpdate = useCallback(
-    (id, firstName, lastName, email, phone, blockedInfo) => {
-      const blocked = !blockedInfo;
-      const empdata = { id, firstName, lastName, email, phone, blocked };
-      axios
-        .put(`http://localhost:8000/employee/${id}`, empdata, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => {
-          // alert("Successfully blocked employee");
-          // navigate("/");
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    },
-    []
-  );
+
   useEffect(() => {
+    console.log("UseEffect Runs");
     axios
       .get("http://localhost:8000/employee")
       .then((res) => {
@@ -51,7 +65,7 @@ const EmployeeList = () => {
       .catch((err) => {
         console.log(err.message);
       });
-  }, [BlockUpdate]);
+  }, []);
 
   return (
     <div className="container">
