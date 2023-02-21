@@ -68,7 +68,7 @@ const EmployeeList = () => {
         <div className="card-title">
           <h2>Employee List</h2>
         </div>
-        <div className="card-body">
+        <div className="card-body table-responsive">
           <div className="divbtn">
             <Link to="employee/create" className="btn btn-success">
               Add Employee (+)
